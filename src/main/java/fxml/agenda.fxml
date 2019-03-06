@@ -1,0 +1,56 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<VBox fx:controller="main.java.controllers.AgendaController"
+      xmlns:fx="http://javafx.com/fxml" alignment="center" spacing="20" fillWidth="true">
+    <padding>
+        <Insets top="25" right="25" bottom="10" left="25"/>
+    </padding>
+    <HBox>
+        <Label alignment="CENTER_LEFT">Tabel abonati:</Label>
+        <Region HBox.hgrow="ALWAYS"/>
+    </HBox>
+    <TableView fx:id="abonatiTableView" prefWidth="550" prefHeight="270">
+        <columns>
+            <TableColumn text="Nume" prefWidth="110" sortable="false">
+                <cellValueFactory>
+                    <PropertyValueFactory property="nume"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Prenume" prefWidth="110" sortable="false">
+                <cellValueFactory>
+                    <PropertyValueFactory property="prenume"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="taraTableColumn" text="Tara" prefWidth="100" sortable="false"/>
+            <TableColumn fx:id="orasTableColumn" text="Oras" prefWidth="110" sortable="false"/>
+            <TableColumn fx:id="stradaTableColumn" text="Strada" prefWidth="110" sortable="false"/>
+        </columns>
+    </TableView>
+    <HBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="deleteAbonatButton" onAction="#deleteAbonat">Sterge abonat</Button>
+    </HBox>
+
+    <Separator/>
+
+    <HBox spacing="5" alignment="CENTER">
+        <TextField fx:id="numeTextField" promptText="nume" prefWidth="90"/>
+        <TextField fx:id="prenumeTextField" promptText="prenume" prefWidth="90"/>
+        <TextField fx:id="taraTextField" promptText="tara" prefWidth="70"/>
+        <TextField fx:id="orasTextField" promptText="oras" prefWidth="75"/>
+        <TextField fx:id="stradaTextField" promptText="strada" prefWidth="80"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="addAbonatButton" onAction="#addAbonat" styleClass="btn-primary">ADAUGA</Button>
+    </HBox>
+</VBox>
